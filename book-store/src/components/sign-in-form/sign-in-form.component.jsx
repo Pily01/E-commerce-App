@@ -4,7 +4,8 @@ import {
     auth, 
     signInWithGooglePopup, 
     createUserDocumentFromAuth,
-    signInWithGoogleRedirect 
+    signInWithGoogleRedirect,
+    signInAuthUserWithEmailAndPassword
 } from '../../utils/firebase/firebase.utils'
 
 import FormInput from "../form-input/form-input.component";
@@ -40,6 +41,17 @@ const SignInForm = () => {
         const userDocRef = await createUserDocumentFromAuth(user);
     }
 
+    const handleSubmit= async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await signInAuthUserWithEmailAndPassword(email, password);
+            console.log(response);
+        } catch (error) {
+            
+        }
+    }
+
     return (    
     <div className='sign-in-container'>
             <h2>I already have an account</h2>
@@ -72,8 +84,6 @@ const SignInForm = () => {
                     </Button> */}
                 </div>
             </form>
- 
-            
         </div>
     )
 }
