@@ -45,45 +45,45 @@ const SignUpForm = () => {
     }
 
     return (
-        <div>
+        <div className='sign-up-container'>
             <h1>Sign Up with your email and password</h1>
             <form onSubmit={handleSubmit}>
-                <FormInput 
-                label="Dsiplay Name" 
-                type ="text" 
-                required={true} 
-                onChange={handleChange} 
-                name="displayName" 
-                value={displayName}
+                <FormInput
+                  label='Display Name'
+                  type='text'
+                  required
+                  onChange={handleChange}
+                  name='displayName'
+                  value={displayName}
                 />
 
-                <FormInput 
-                label="Email" 
-                type ="email" 
-                required={true} 
-                onChange={handleChange} 
-                name="email" 
-                value={password}
+                <FormInput
+                  label='Email'
+                  type='email'
+                  required
+                  onChange={handleChange}
+                  name='email'
+                  value={email}
                 />
 
-                <FormInput 
-                label="Password" 
-                type ="password" 
-                required={true} 
-                onChange={handleChange} 
-                name="password" 
-                value={password}
+                <FormInput
+                  label='Password'
+                  type='password'
+                  required
+                  onChange={handleChange}
+                  name='password'
+                  value={password}
                 />
 
-                <FormInput 
-                label="Confirm Password" 
-                type ="password" 
-                required={true} 
-                onChange={handleChange} 
-                name="confirmPassword" 
-                value={confirmPassword}
+                <FormInput
+                  label='Confirm Password'
+                  type='password'
+                  required
+                  onChange={handleChange}
+                  name='confirmPassword'
+                  value={confirmPassword}
                 />
-                
+
                 <button type='submit'>Submit</button>
             </form>
         </div>
