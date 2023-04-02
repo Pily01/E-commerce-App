@@ -21,6 +21,10 @@ const SignInForm = () => {
     const [formFileds, setFormFields] = useState(defaultFormFields);
     const {email, password} = formFileds;
 
+    const resetFormFields = () => {
+        setFormFields(defaultFormFields)
+    }
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormFields({...formFileds, [name]: value})
@@ -47,8 +51,20 @@ const SignInForm = () => {
         try {
             const response = await signInAuthUserWithEmailAndPassword(email, password);
             console.log(response);
+            resetFormFields();
         } catch (error) {
-            
+            switch(error.code){
+                case 'auth/wrong-password': 
+                    alert('Incorrect password for email')
+                    break
+                case 'auth/user-not-found':
+                    alert('Email not associated with an existing account')
+                    break
+                default:
+                    alert('Unknown error');
+                    console.log('Error when signing in: ', error);
+                    break
+            }
         }
     }
 
@@ -56,7 +72,7 @@ const SignInForm = () => {
     <div className='sign-in-container'>
             <h2>I already have an account</h2>
             <span>Sign in with your email and password</span>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <FormInput
                     label='Email'
                     type='email'
