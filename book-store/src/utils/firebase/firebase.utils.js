@@ -9,7 +9,7 @@ import { getAuth,
     signOut,
     onAuthStateChanged
 } from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
+import { getFirestore, doc, getDoc, setDoc, collection, writeBatch } from 'firebase/firestore'
 
 
 // Your web app's Firebase configuration
@@ -41,6 +41,20 @@ export const signInWithGoogleRedirect = () => signInWithRedirect(auth, provider)
 
 // Database
 export const db = getFirestore();
+// Add collection and documents
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+    const collectionRef = collection(db, collectionKey);
+    const batch = writeBatch(db);
+
+    objectsToAdd.forEach((object) => {
+        const docRef = doc(collectionRef, object.title.toLowerCase());
+        batch.set(docRef, object);
+    })
+
+    await batch.commit();
+    console.log('done')
+}
+
 // Create user using user Auth
 export const createUserDocumentFromAuth  = async (userAuth, additionalInformation = {}) => {
     if(!userAuth) return;
@@ -87,4 +101,5 @@ export const onAuthStateChangedListener = (callback) =>
 {
     onAuthStateChanged(auth, callback);
 }
+
 
