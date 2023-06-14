@@ -4,14 +4,13 @@ import { useState } from "react";
 
 import { getCategoriesAndDocuments } from "../utils/firebase/firebase.utils.js";
 
-export const ProductsContext = createContext({
-    setProducts: () => null,
-    products: [],
+export const CategoriesContext = createContext({
+    categoriesMap: {},
 })
 
-export const ProductsProvider = ({children}) => {
-    const [products, setProducts] = useState([]);
-    const value = {products, setProducts};
+export const CategoriesProvider = ({children}) => {
+    const [categoriesMap, setCategoriesMap] = useState({});
+    const value = {categoriesMap, setCategoriesMap};
 
     useEffect(() => {
         // We have to do this because getCategories and Documents is an async function
@@ -26,5 +25,5 @@ export const ProductsProvider = ({children}) => {
     //     addCollectionAndDocuments('categories', SHOP_DATA);
     // }, [])
 
-    return <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>;
+    return <CategoriesContext.Provider value={value}>{children}</CategoriesContext.Provider>;
 }
