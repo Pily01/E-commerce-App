@@ -4,36 +4,31 @@ import CategoryItem from '../category-item/category-item.component';
 const Categories = () =>{
 
     const categories = [
-        {
-          id: 1,
-          title: 'Literature & Fiction',
-          imageUrl: 'https://m.media-amazon.com/images/I/91U7rItuAML.jpg'
-        },
-        {
-          id: 2,
-          title: 'Biographies & Memoirs',
-          imageUrl: 'https://m.media-amazon.com/images/I/51bZujlJxlL._AC_SY780_.jpg'
-        },
-        {
-          id: 3,
-          title: 'Mystery, Thriller & Suspense',
-          imageUrl: 'https://m.media-amazon.com/images/I/51bZujlJxlL._AC_SY780_.jpg'
-        },
-        {
-          id: 4,
-          title: 'Science & Math',
-          imageUrl: 'https://m.media-amazon.com/images/I/51bZujlJxlL._AC_SY780_.jpg'
-        },
-        {
-          id: 5,
-          title: 'Science Fiction & Fantasy',
-          imageUrl: 'https://wallpapercave.com/wp/wp1863544.jpg'
-        },
-        {
-          id: 6,
-          title: 'Politics & Social Sciences',
-          imageUrl: 'https://m.media-amazon.com/images/I/51bZujlJxlL._AC_SY780_.jpg'
-        }
+      {
+        "id": 1,
+        "title": "hats",
+        "imageUrl": "https://i.ibb.co/cvpntL1/hats.png"
+      },
+      {
+        "id": 2,
+        "title": "jackets",
+        "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png"
+      },
+      {
+        "id": 3,
+        "title": "sneakers",
+        "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png"
+      },
+      {
+        "id": 4,
+        "title": "womens",
+        "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png"
+      },
+      {
+        "id": 5,
+        "title": "mens",
+        "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
+      }
       ];
 
     return(
